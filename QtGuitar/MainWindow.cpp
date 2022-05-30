@@ -9,6 +9,19 @@ MainWindow::MainWindow(QString version, QWidget *parent)
     ui->setupUi(this);
     setWindowTitle(QString("QtGuitar " + version));
 
+    setComboBoxNotes();
+    setComboBoxScales();
+
+    scale.printScale();
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+void MainWindow::setComboBoxNotes()
+{
     ui->comboBox_notes->addItem(QString("C"));
     ui->comboBox_notes->addItem(QString("D"));
     ui->comboBox_notes->addItem(QString("E"));
@@ -16,13 +29,12 @@ MainWindow::MainWindow(QString version, QWidget *parent)
     ui->comboBox_notes->addItem(QString("G"));
     ui->comboBox_notes->addItem(QString("A"));
     ui->comboBox_notes->addItem(QString("B"));
-
-    ui->comboBox_scales->addItem(QString("Major"));
 }
 
-MainWindow::~MainWindow()
+void MainWindow::setComboBoxScales()
 {
-    delete ui;
+    ui->comboBox_scales->addItem(QString("Major"));
+    ui->comboBox_scales->addItem(QString("Minor Harmonic"));
 }
 
 
